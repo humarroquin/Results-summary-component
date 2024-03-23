@@ -64,6 +64,7 @@ body {
 .card-wrapper {
   --border-radius: 1.5rem;
   --card-padding: 2rem;
+  background: var(--bg-white);
   display: grid;
   grid-template-columns: 1fr;
   border-radius: var(--border-radius);
@@ -119,7 +120,6 @@ body {
 .summary-section {
   padding: var(--card-padding);
   color: var(--fc-dark-gray);
-  background: var(--bg-white);
 }
 
 .summary-section .summary-title {
