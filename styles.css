@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  /* gradients */
+  --bg-gradient-background: linear-gradient(
+    hsl(252, 100%, 67%),
+    hsl(241, 81%, 54%)
+  );
+  --bg-gradient-circle: linear-gradient(
+    hsla(256, 72%, 46%, 1),
+    hsla(241, 72%, 46%, 0)
+  );
+
+  /* result colors */
+  --bg-red: hsl(0, 100%, 95%);
+  --bg-yellow: hsl(39, 100%, 95%);
+  --bg-green: hsl(166, 100%, 95%);
+  --bg-light-blue: hsl(234, 85%, 95%);
+  --bg-pale-blue: hsl(221, 100%, 96%);
+  --bg-white: hsl(0, 0%, 100%);
+
+  /* btn colors */
+  --bg-blue: hsl(224, 30%, 27%);
+  --btn-hover: hsl(224, 30%, 37%);
+
+  /* text colors */
+  --fc-white: hsl(0, 0%, 100%);
+  --fc-red: hsl(0, 100%, 67%);
+  --fc-yellow: hsl(39, 100%, 56%);
+  --fc-green: hsl(166, 100%, 37%);
+  --fc-blue: hsl(234, 85%, 45%);
+  --fc-gray-blue: hsl(224, 30%, 27%);
+  --fc-gray: hsl(0, 0%, 75%);
+  --fc-dark-gray: hsl(0, 0%, 45%);
+
+  /* fonts */
+  --ff-body: 'Hanken Grotesk', sans-serif;
+  --ff-headers: 'Hanken Grotesk', sans-serif;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: 1rem;
+  line-height: 1.4;
+  background: var(--bg-pale-blue);
+}
+
+.card-wrapper {
+  --border-radius: 1.5rem;
+  --card-padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: var(--border-radius);
+  max-width: 43rem;
+}
+
+/* score section */
+.score-section {
+  text-align: center;
+  color: var(--fc-gray);
+  padding: var(--card-padding) calc(var(--card-padding) * 1.5);
+  background: var(--bg-gradient-background);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.score-section .score-heading {
+  font-family: var(--ff-headers);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.score-section .result-circle {
+  width: 12rem;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-gradient-circle);
+  margin: 1rem auto;
+
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--fc-white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-section .result-sm-number {
+  display: block;
+  font-size: 1rem;
+  color: var(--fc-gray);
+}
+
+.score-section .score-grade {
+  font-size: 1.7rem;
+  color: var(--fc-white);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* summary section */
+.summary-section {
+  padding: var(--card-padding);
+  color: var(--fc-dark-gray);
+  background: var(--bg-white);
+}
+
+.summary-section .summary-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fc-gray-blue);
+  margin-bottom: 1.5rem;
+}
+.summary-section .section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-section .result-bold {
+  font-weight: 700;
+  color: var(--fc-gray-blue);
+}
+
+.summary-section .summary-slot:not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+
+.summary-section .btn {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--fc-white);
+
+  border: none;
+  background-color: var(--bg-blue);
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 2rem;
+
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.summary-section .btn:hover {
+  background-color: var(--btn-hover);
+}
+
+/* summary colors */
+.section-title {
+  font-weight: 500;
+}
+
+.summary-section .summary-slot {
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary-slot.red {
+  background-color: var(--bg-red);
+}
+
+.section-title.red {
+  color: var(--fc-red);
+}
+
+.summary-slot.yellow {
+  background-color: var(--bg-yellow);
+}
+
+.section-title.yellow {
+  color: var(--fc-yellow);
+}
+
+.summary-slot.green {
+  background-color: var(--bg-green);
+}
+
+.section-title.green {
+  color: var(--fc-green);
+}
+
+.summary-slot.blue {
+  background-color: var(--bg-light-blue);
+}
+
+.section-title.blue {
+  color: var(--fc-blue);
+}
+
+/* media queries */
+@media (min-width: 35rem) {
+  body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 1rem;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  .score-section {
+    border-radius: var(--border-radius);
+  }
+}
